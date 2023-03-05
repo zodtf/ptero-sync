@@ -4,7 +4,8 @@ _by [@zudsniper](https://github.com/zudsniper)_ & [`ChatGPT`](https://chat.opena
 
 A GitHub Action that synchronizes files to one or more Pterodactyl game servers using the Pterodactyl API.  
 <br>
-[![Release](https://github.com/zodtf/ptero-sync/workflows/Release/badge.svg)](https://github.com/zodtf/ptero-sync/workflows/release.yaml)  ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/zodtf/ptero-sync?include_prereleases)  ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/zodtf/ptero-sync?color=446614)  [![GitHub](https://img.shields.io/github/license/zodtf/ptero-sync)](https://github.com/zodtf/ptero-sync/blob/master/LICENSE)  
+[![Release](https://github.com/zodtf/ptero-sync/workflows/Release/badge.svg)](https://github.com/zodtf/ptero-sync/workflows/release.yaml)  ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/zodtf/ptero-sync?include_prereleases)  ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/zodtf/ptero-sync?color=446614)  [![GitHub](https://img.shields.io/github/license/zodtf/ptero-sync)](https://github.com/zodtf/ptero-sync/blob/master/LICENSE)   
+![GitHub package.json version](https://img.shields.io/github/package-json/v/zodtf/ptero-sync?color=F75131&label=latest)  ![GitHub repo size](https://img.shields.io/github/repo-size/zodtf/ptero-sync?color=c99e1c)  ![Lines of code](https://img.shields.io/tokei/lines/github/zodtf/ptero-sync?color=a1201b)
 
 ## Usage
 
@@ -75,7 +76,7 @@ jobs:
 
 <i><code>zod.tf</code></i> 
 
-![GitHub package.json version](https://img.shields.io/github/package-json/v/zodtf/ptero-sync?color=FF67F2)  ![Discord](https://img.shields.io/discord/974855479975100487)  ![GitHub followers](https://img.shields.io/github/followers/zudsniper?style=social) 
+![Discord](https://img.shields.io/discord/974855479975100487)  ![GitHub followers](https://img.shields.io/github/followers/zudsniper?style=social) 
 
 > _fullstack development, server administration, web design, branding creation, musical scoring, video editing, and idk another thing_   
 
