@@ -1,0 +1,26 @@
+{
+  "name": "ptero-sync",
+  "version": "1.0.0",
+  "description": "GitHub Action to upload files to Pterodactyl server(s) via Ptero API",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zodtf/ptero-sync"
+  },
+  "keywords": [
+    "github",
+    "action",
+    "pterodactyl",
+    "upload",
+    "sync"
+  ],
+  "author": "zudsniper",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.4.0",
+    "axios": "^0.21.1",
+    "querystring": "^0.2.0",
+    "ssh2": "^0.8.4"
+  }
+}

@@ -1,0 +1,33 @@
+#!/bin/bash
+
+set -e
+
+send_path=$1
+server_ids=$2
+ptero_url=$3
+api_key=$4
+
+encoded_send_path=$(echo "$send_path" | jq -sRr @uri)
+echo "Encoded Send Path: $encoded_send_path"
+
+IFS=',' read -ra server_ids_array <<< "$server_ids"
+for server_id in "${server_ids_array[@]}"; do
+  echo "Server ID: $server_id"
+  echo "Sending notification to server"
+  curl -s -H "Authorization: Bearer $api_key" -H "Content-Type: application/json" -X POST "$ptero_url/api/client/servers/$server_id/command" -d '{"command": "sm_say WARNING: Server shutting down to download update from upstream.; sm_csay SHUTTING DOWN TO UPDATE"}' > /dev/null
+  echo "Server notified"
+  echo "Stopping server"
+  curl -s -H "Authorization: Bearer $api_key" -H "Content-Type: application/json" -X POST "$ptero_url/api/client/servers/$server_id/power" -d '{"signal": "kill"}' > /dev/null
+  echo "Server stopped"
+  echo "Uploading files to server"
+  find $send_path -type f -print0 | while IFS= read -r -d $'\0' file; do
+    encoded_file=$(echo "$file" | jq -sRr @uri)
+    echo "Uploading file: $file"
+    curl -s -H "Authorization: Bearer $api_key" -H "Content-Type: multipart/form-data" -X POST "$ptero_url/api/client/servers/$server_id/files/write?file=$encoded_file" --form "file=@$file" > /dev/null
+    echo "File uploaded: $file"
+  done
+  echo "All files uploaded to server"
+  echo "Starting server"
+  curl -s -H "Authorization: Bearer $api_key" -H "Content-Type: application/json" -X POST "$ptero_url/api/client/servers/$server_id/power" -d '{"signal": "start"}' > /dev/null
+  echo "Server started"
+done
