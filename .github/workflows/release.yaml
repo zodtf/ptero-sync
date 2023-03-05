@@ -1,9 +1,3 @@
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    container:
-      image: marcosperona/git-changelog:latest
-
 name: Release 
 
 on:
@@ -15,6 +9,8 @@ jobs:
   build:
     name: Release
     runs-on: ubuntu-latest
+    container:
+      image: marcosperona/git-changelog:latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
