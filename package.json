@@ -1,6 +1,6 @@
 {
   "name": "ptero-sync",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "GitHub Action to upload files to Pterodactyl server(s) via Ptero API",
   "main": "index.js",
   "repository": {

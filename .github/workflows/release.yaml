@@ -46,8 +46,8 @@ jobs:
         uses: ncipollo/release-action@v1.12.0
         with:
           artifacts: source-code
-          name: Release ${{ github.ref }}
-          prerelease: ${{ contains(github.ref, 'prerelease') }}
+          name: Release ${{ github.ref_name }}
+          prerelease: ${{ contains(github.ref_name, 'prerelease') }}
           tag: ${{ github.ref }}
           body: |
             ## Changelog
