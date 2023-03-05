@@ -1,3 +1,9 @@
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: marcosperona/git-changelog:latest
+
 name: Release 
 
 on:
