@@ -1,6 +1,6 @@
 # `ptero-sync`
 ### _github action to upload your basefile repository contents into your pterodactyl.io server suite as specified._
-_by [@zudsniper](https://github.com/zudsniper)_ & [`ChatGPT`](https://chat.openai.com/chat)_  
+_by [@zudsniper](https://github.com/zudsniper)_ & [`ChatGPT`](https://chat.openai.com/chat)  
 
 [![Release](https://github.com/zodtf/ptero-sync/actions/workflows/release.yaml/badge.svg?branch=master&event=release)](https://github.com/zodtf/ptero-sync/actions/workflows/release.yaml)  
 
