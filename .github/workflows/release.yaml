@@ -41,6 +41,14 @@ jobs:
           name: source-code
           path: .
 
+      - name: Get Changelog & Version 
+        id: changelog_and_version
+        run: |
+          CHANGE_LOG=$(cat CHANGELOG.md)
+          echo -ne "CHANGELOG=${CHANGE_LOG}\n" >> $GITHUB_OUTPUT
+          MYVER=$(node -pe "require('./package.json').version")
+          echo -ne "VERSION=${MYVER}\n" >> $GITHUB_OUTPUT
+
       - name: Create Release
         id: create_release
         uses: ncipollo/release-action@v1.12.0
@@ -51,10 +59,10 @@ jobs:
           tag: ${{ github.ref }}
           body: |
             ## Changelog
-            $(cat CHANGELOG.md)
+            ${{ steps.changelog_and_version.outputs.CHANGELOG }}
 
             ## Version
-            Version: `$(node -pe "require('./package.json').version")`
+            Version: ${{ steps.changelog_and_version.outputs.VERSION }}
 
             ## Release Files
             * [Source code](https://github.com/zodtf/ptero-sync/archive/${{ github.ref }}.zip)
