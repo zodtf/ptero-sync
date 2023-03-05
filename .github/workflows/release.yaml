@@ -10,7 +10,7 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     container:
-      image: marcosperona/git-changelog:latest
+      image: githubchangeloggenerator/github-changelog-generator:latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -28,7 +28,7 @@ jobs:
 
       - name: Generate changelog
         id: changelog
-        uses: docker://marcosperona/git-changelog:latest
+        uses: docker://githubchangeloggenerator/github-changelog-generator:latest
         with:
           format: markdown
           output-file: CHANGELOG.md
