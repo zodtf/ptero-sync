@@ -47,7 +47,7 @@ jobs:
         with:
           artifacts: source-code
           name: Release ${{ github.ref_name }}
-          prerelease: ${{ contains(github.ref_name, 'prerelease') }}
+          prerelease: ${{ contains(github.ref_name, 'pre') }}
           tag: ${{ github.ref }}
           body: |
             ## Changelog
