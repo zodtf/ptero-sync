@@ -2,9 +2,9 @@
 ### _github action to upload your basefile repository contents into your pterodactyl.io server suite as specified._
 _by [@zudsniper](https://github.com/zudsniper)_ & [`ChatGPT`](https://chat.openai.com/chat)  
 
-[![Release](https://github.com/zodtf/ptero-sync/actions/workflows/release.yaml/badge.svg?branch=master&event=release)](https://github.com/zodtf/ptero-sync/actions/workflows/release.yaml)  
-
-A GitHub Action that synchronizes files to one or more Pterodactyl game servers using the Pterodactyl API.
+A GitHub Action that synchronizes files to one or more Pterodactyl game servers using the Pterodactyl API.  
+<br>
+[![Release](https://github.com/zodtf/ptero-sync/workflows/Release/badge.svg)](https://github.com/zodtf/ptero-sync/workflows/release.yaml)  ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/zodtf/ptero-sync?include_prereleases)  ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/zodtf/ptero-sync?color=446614)  [![GitHub](https://img.shields.io/github/license/zodtf/ptero-sync)](https://github.com/zodtf/ptero-sync/blob/master/LICENSE)  
 
 ## Usage
 
@@ -70,3 +70,13 @@ jobs:
           ptero_url: ${{ secrets.PTERODACTYL_URL }}
           send_path: 'path/to/files'
 ```
+
+<hr>
+
+<i><code>zod.tf</code></i> 
+
+![GitHub package.json version](https://img.shields.io/github/package-json/v/zodtf/ptero-sync?color=FF67F2)  ![Discord](https://img.shields.io/discord/974855479975100487)  ![GitHub followers](https://img.shields.io/github/followers/zudsniper?style=social) 
+
+> _fullstack development, server administration, web design, branding creation, musical scoring, video editing, and idk another thing_   
+
+<a href="https://zod.tf/"><img src="https://user-images.githubusercontent.com/16076573/222953031-03f44756-03bf-46b9-b66e-98d50dc013fc.png" alt="second zod.tf logo" width="150rem" style="max-width: 100%;"></a>
