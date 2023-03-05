@@ -2,9 +2,7 @@
 ### _github action to upload your basefile repository contents into your pterodactyl.io server suite as specified._
 _by [@zudsniper](https://github.com/zudsniper)_ & [`ChatGPT`](https://chat.openai.com/chat)_  
 
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/USERNAME/REPOSITORY/ptero-sync?label=GitHub%20Actions&style=flat-square)](https://github.com/USERNAME/REPOSITORY/actions)
-[![npm](https://img.shields.io/npm/v/ptero-sync?label=npm&style=flat-square)](https://www.npmjs.com/package/ptero-sync)
-[![License](https://img.shields.io/github/license/USERNAME/REPOSITORY?label=License&style=flat-square)](LICENSE)
+[![Release](https://github.com/zodtf/ptero-sync/actions/workflows/release.yaml/badge.svg?branch=master&event=release)](https://github.com/zodtf/ptero-sync/actions/workflows/release.yaml)  
 
 A GitHub Action that synchronizes files to one or more Pterodactyl game servers using the Pterodactyl API.
 
