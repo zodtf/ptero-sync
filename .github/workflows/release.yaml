@@ -5,7 +5,7 @@ on:
     tags:
       - '*.*.*'
   workflow_dispatch:
-  
+    
 
 jobs:
   build:
@@ -13,10 +13,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
         with:
           ref: ${{ github.ref }}
           fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate changelog
+        run: |
+          git fetch --tags
+          last_tag=$(git describe --abbrev=0 --tags $(git rev-list --tags --skip=1 --max-count=1))
+          git log --pretty=format:'- %s' ${last_tag}..HEAD > CHANGELOG.md || echo "No commits since last tag."
 
       - name: Archive source code
         uses: actions/upload-artifact@v2
@@ -24,20 +38,14 @@ jobs:
           name: source-code
           path: .
 
-      - name: Create changelog
-        run: |
-          last_release_tag=$(git describe --tags --abbrev=0 HEAD^)
-          changelog=$(git log --pretty=format:'- %s' $last_release_tag..HEAD)
-          echo $changelog > CHANGELOG.md
-
-      - name: Create release
+      - name: Create Release
         id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: ncipollo/release-action@v2.3.3
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          artifacts: source-code
+          name: Release ${{ github.ref }}
+          prerelease: ${{ contains(github.ref, 'prerelease') }}
+          tag: ${{ github.ref }}
           body: |
             ## Changelog
             $(cat CHANGELOG.md)
@@ -48,13 +56,8 @@ jobs:
             ## Release Files
             * [Source code](https://github.com/zodtf/ptero-sync/archive/${{ github.ref }}.zip)
 
-          draft: false
-          prerelease: ${{ contains(github.ref, 'prerelease') }}
-          
-      - name: Archive release
-        run: |
-          zip -r ptero-sync-${{ github.ref }}.zip .
-        working-directory: .
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload release asset
         uses: actions/upload-release-asset@v1
