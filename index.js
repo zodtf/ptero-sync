@@ -1,3 +1,7 @@
+/* 
+ * Entrypoint for this workflow. Handles executive functions like iterating servers & more 
+ * by @zudsniper & ChatGPT
+*/
 const core = require('@actions/core');
 const { uploadFiles } = require('./upload_to_ptero');
 
@@ -37,6 +41,7 @@ async function uploadToServer(pteroUrl, serverId, apiKey, filePaths) {
       }
     });
 
+    // initialize server upload details
     const serverData = serverResponse.data.attributes;
     const { node, sftp_details } = serverData.relationships;
     const { ip, port } = node.attributes;
@@ -52,6 +57,7 @@ async function uploadToServer(pteroUrl, serverId, apiKey, filePaths) {
       password: password
     });
 
+    // provide progress bar output with upload process
     console.log(`Uploading files to directory: ${uploadPath}`);
     for (let i = 0; i < filePaths.length; i++) {
       const filePath = filePaths[i];
@@ -80,4 +86,5 @@ async function uploadToServer(pteroUrl, serverId, apiKey, filePaths) {
   }
 }
 
+// start the workflow 
 run();
