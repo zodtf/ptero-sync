@@ -13,7 +13,7 @@ To use this action in a workflow, include the following step:
 
 ```yaml
 - name: Sync to Pterodactyl game servers
-  uses: USERNAME/REPOSITORY@v1
+  uses: zodtf/ptero-sync@v1
   with:
     api_key: ${{ secrets.PTERODACTYL_API_KEY }}
     ptero_url: ${{ secrets.PTERODACTYL_URL }}
@@ -42,7 +42,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Sync to Pterodactyl game servers
-        uses: USERNAME/REPOSITORY@v1
+        uses: zodtf/ptero-sync@v1
         with:
           api_key: ${{ secrets.PTERODACTYL_API_KEY }}
           ptero_url: ${{ secrets.PTERODACTYL_URL }}
@@ -65,7 +65,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Sync to Pterodactyl game servers
-        uses: USERNAME/REPOSITORY@v1
+        uses: zodtf/ptero-sync@v1
         with:
           api_key: ${{ secrets.PTERODACTYL_API_KEY }}
           ptero_url: ${{ secrets.PTERODACTYL_URL }}
