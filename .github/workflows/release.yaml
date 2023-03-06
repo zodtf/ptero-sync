@@ -44,7 +44,7 @@ jobs:
       - name: Get Changelog & Version 
         id: changelog_and_version
         run: |
-          CHANGE_LOG=$(cat CHANGELOG.md)
+          CHANGE_LOG="$(cat CHANGELOG.md)"
           echo -ne "CHANGELOG=${CHANGE_LOG}\n" >> $GITHUB_OUTPUT
           MYVER=$(node -pe "require('./package.json').version")
           echo -ne "VERSION=${MYVER}\n" >> $GITHUB_OUTPUT
